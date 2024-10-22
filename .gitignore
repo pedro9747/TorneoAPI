@@ -1,0 +1,10 @@
+# Ignorar archivos de Visual Studio
+.vs/
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+
+# Ignorar bin y obj
+/bin/
+/obj/
