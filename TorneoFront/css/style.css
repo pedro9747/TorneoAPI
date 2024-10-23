@@ -12,6 +12,7 @@ body {
     z-index: -1;
 }
 
+
 body::before {
     content: "";
     position: absolute;
@@ -23,6 +24,15 @@ body::before {
     z-index: -1;
 }
 
+.nav-link{
+    text-decoration: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 18px;
+    font-weight: 600;
+    color: #999999;
+    position: relative;
+    transition: color 0.25s;
+}
 
 #TextBienvenida{
     display: flex  ;
@@ -38,7 +48,7 @@ body::before {
     padding-top: 10%;
 }
 
-label{
+#labelFormulario{
     color: rgba(255, 255,255, 0.8);
     text-transform: uppercase;
     font-size: 10px;
@@ -62,7 +72,7 @@ label{
     align-items: stretch;
     justify-content: center;
     text-align: left;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 25px;
     border-radius: 10px;
     width: 400px;
@@ -74,7 +84,7 @@ label{
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
-    border: none;
+    border:rgba(0, 0, 0, 0.3);
 }
 #formularioInicioSesion{
     left: -100px;
