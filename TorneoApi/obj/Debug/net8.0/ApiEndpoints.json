@@ -1,0 +1,18 @@
+[
+  {
+    "ContainingType": "TorneoApi.Controllers.TorneoController",
+    "Method": "CreateTorneo",
+    "RelativePath": "Ap\u00ED/Torneo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "torneo",
+        "Type": "TorneoApi.Models.Torneo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

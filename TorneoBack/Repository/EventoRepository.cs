@@ -15,7 +15,7 @@ namespace TorneoBack.Repository
         List<Evento> GetAll();
         void Update(Evento evento);
     }
-    class EventoRepository : IEventoRepository
+    public class EventoRepository : IEventoRepository
     {
         public void Add(Evento evento)
         {

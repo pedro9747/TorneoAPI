@@ -15,7 +15,7 @@ namespace TorneoBack.Repository
         IEnumerable<Jugador> GetAll();
         void Update(Jugador jugador);
     }
-    internal class JugadorRepository : IJugadorRepository
+    public class JugadorRepository : IJugadorRepository
     {
         public void Add(Jugador jugador)
         {

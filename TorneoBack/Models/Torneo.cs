@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace TorneoApi.Models;
 
@@ -13,9 +14,10 @@ public partial class Torneo
 
     public DateTime? FechaFin { get; set; }
 
-    public virtual ICollection<Pago> Pagos { get; set; } = new List<Pago>();
-
-    public virtual ICollection<Partido> Partidos { get; set; } = new List<Partido>();
-
-    public virtual ICollection<TorneosXEquipo> TorneosXEquipos { get; set; } = new List<TorneosXEquipo>();
+    [JsonIgnore]
+    public virtual ICollection<Pago>? Pagos { get; set; } = null;
+    [JsonIgnore]
+    public virtual ICollection<Partido>? Partidos { get; set; } = null;
+    [JsonIgnore]
+    public virtual ICollection<TorneosXEquipo>? TorneosXEquipos { get; set; } = null;
 }
