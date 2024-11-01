@@ -7,10 +7,7 @@ using TorneoApi.Models;
 
 namespace TorneoBack.Repository
 {
-    public interface ITorneoRepository
-    {
-        bool Add(Torneo torneo);
-    }
+    
     public class TorneoRepository : ITorneoRepository
     {
         private readonly TorneoContext _context;

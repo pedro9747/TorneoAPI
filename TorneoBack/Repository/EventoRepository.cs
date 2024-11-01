@@ -7,14 +7,7 @@ using TorneoApi.Models;
 
 namespace TorneoBack.Repository
 {
-    public interface IEventoRepository
-    {
-        void Add(Evento evento);
-        void Delete(int id);
-        Evento Get(int id);
-        List<Evento> GetAll();
-        void Update(Evento evento);
-    }
+    
     public class EventoRepository : IEventoRepository
     {
         public void Add(Evento evento)

@@ -8,10 +8,7 @@ using TorneoBack.Repository;
 
 namespace TorneoBack.Service
 {
-    public interface ITorneoService
-    {
-        bool AddTorneo(Torneo torneo);
-    }
+   
     public class TorneoService : ITorneoService
     {
         private readonly ITorneoRepository _torneoRepository;

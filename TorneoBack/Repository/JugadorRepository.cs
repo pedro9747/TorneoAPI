@@ -7,14 +7,7 @@ using TorneoApi.Models;
 
 namespace TorneoBack.Repository
 {
-    public interface IJugadorRepository
-    {
-        void Add(Jugador jugador);
-        void Delete(int id);
-        Jugador Get(int id);
-        IEnumerable<Jugador> GetAll();
-        void Update(Jugador jugador);
-    }
+   
     public class JugadorRepository : IJugadorRepository
     {
         public void Add(Jugador jugador)
