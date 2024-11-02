@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,29 +12,49 @@ namespace TorneoBack.Repository
    
     public class JugadorRepository : IJugadorRepository
     {
-        public void Add(Jugador jugador)
+        private readonly TorneoContext _context;
+        public JugadorRepository(TorneoContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public bool Add(Jugador jugador)
+        {
+            if (jugador != null)
+            {
+
+                _context.Jugadores.Add(jugador);
+
+                return _context.SaveChanges() > 0;
+            }
+            return false;
         }
 
-        public void Delete(int id)
+        //public bool Delete(int id)
+        //{
+        //    var jugador = _context.Jugadores.Find(id);
+        //    if (jugador != null)
+        //    {
+        //        _context.Jugadores.Remove(jugador);
+        //        return _context.SaveChanges() > 0   ;
+        //    }
+        //    return false;
+
+        //}
+
+        public List<Jugador> GetByEquipoId(int equipoId)
         {
-            throw new NotImplementedException();
+            return _context.Jugadores.Where(j => j.IdEquipo == equipoId).ToList();
         }
 
-        public Jugador Get(int id)
+        public bool Update(Jugador jugador)
         {
-            throw new NotImplementedException();
-        }
+            if (jugador!=null)
+            {
+                _context.Jugadores.Update(jugador);
+                return _context.SaveChanges()>0;
+            }
+            return false;
 
-        public IEnumerable<Jugador> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Jugador jugador)
-        {
-            throw new NotImplementedException();
         }
     }
 }

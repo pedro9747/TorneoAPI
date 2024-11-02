@@ -18,7 +18,7 @@ namespace TorneoApi.Controllers
         }
 
         
-        [HttpPost]
+        [HttpPost("Crear")]
         public IActionResult CreateTorneo([FromBody] Torneo torneo)
         {
             try
@@ -42,6 +42,38 @@ namespace TorneoApi.Controllers
                 return StatusCode(500, $"Error interno del servidor: {ex.Message}");
             }
         }
+
+        //[HttpPost("Editar")]
+        //public IActionResult UpdateTorneo([FromBody] Torneo torneo)
+        //{
+        //    try
+        //    {
+        //        if (torneo.FechaInicio > torneo.FechaFin)
+        //        {
+        //            return BadRequest("La fecha de inicio no puede ser posterior a la fecha de finalización.");
+        //        }
+
+        //        var existTorneo = _servicio.getTorneoById(torneo.IdTorneo);
+        //        if (existTorneo == null)
+        //        {
+        //            return NotFound($"El torneo con ID '{torneo.IdTorneo}' no fue encontrado.");
+        //        }
+
+        //        bool torneoActualizado = _servicio.UpdateTorneo(torneo);
+
+        //        if (!torneoActualizado)
+        //        {
+        //            return BadRequest($"No se pudo actualizar el torneo '{torneo.Nombre}'. Verifique los datos e intente nuevamente.");
+        //        }
+
+        //        return Ok(new { mensaje = "Torneo actualizado exitosamente.", torneo });
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+        //    }
+        //}
+
 
 
     }

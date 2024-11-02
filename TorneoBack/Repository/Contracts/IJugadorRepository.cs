@@ -9,10 +9,9 @@ namespace TorneoBack.Repository.Contracts
 {
     public interface IJugadorRepository
     {
-        void Add(Jugador jugador);
-        void Delete(int id);
-        Jugador Get(int id);
-        IEnumerable<Jugador> GetAll();
-        void Update(Jugador jugador);
+        bool Add(Jugador jugador);
+        //bool Delete(int id); este deberia ser una baja logica
+        public List<Jugador> GetByEquipoId(int equipoId);
+        bool Update(Jugador jugador);
     }
 }

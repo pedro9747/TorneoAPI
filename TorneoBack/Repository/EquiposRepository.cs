@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +9,53 @@ using TorneoBack.Repository.Contracts;
 
 namespace TorneoBack.Repository
 {
-    internal class EquiposRepository : IEquiposRepository
+    public class EquiposRepository : IEquiposRepository
     {
-        public bool AddEquipo(Equipo equipo)
+        private readonly TorneoContext _context;
+        public EquiposRepository(TorneoContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
+        public bool Add(Equipo equipo)
+        {
+
+            if (equipo != null)
+            {
+
+                _context.Equipos.Add(equipo);
+                
+                return _context.SaveChanges() >0 ;
+            }
+            return false;
+
+        }
+
+        //public bool Delete(int id)
+        //{
+        //    var equipo = _context.Equipos.Find(id);
+
+        //    if (equipo != null)
+        //    {
+        //        _context.Equipos.Remove(equipo);
+        //        return _context.SaveChanges() > 0;
+        //    }
+        //    return false;
+        //}
 
         public List<Equipo> GetAll()
         {
-            throw new NotImplementedException();
+            return _context.Equipos.Include(e => e.Jugadores).ToList();
+        }
+
+        public bool Update(Equipo equipo)
+        {
+            if (equipo!=null)
+            {
+                _context.Equipos.Update(equipo);
+                return _context.SaveChanges()>0;
+
+            }
+            return false;
         }
     }
 }

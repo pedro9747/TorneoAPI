@@ -10,5 +10,9 @@ namespace TorneoBack.Repository.Contracts
     public interface ITorneoRepository
     {
         bool Add(Torneo torneo);
+        bool Update(Torneo torneo);
+        bool Delete(int id);
+        List<Torneo> GetAll();
+        Torneo GetById(int id);
     }
 }

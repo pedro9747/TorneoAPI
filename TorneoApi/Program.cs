@@ -17,8 +17,8 @@ builder.Services.AddDbContext<TorneoContext>(options => options.UseSqlServer(bui
 
 // Configuración de repositorios y servicios.
 builder.Services.AddScoped<IJugadorRepository, JugadorRepository>();
-builder.Services.AddScoped<IEventoRepository, EventoRepository>();
 builder.Services.AddScoped<ITorneoRepository, TorneoRepository>();
+builder.Services.AddScoped<IEquiposRepository, EquiposRepository>();
 builder.Services.AddScoped<ITorneoService, TorneoService>();
 
 

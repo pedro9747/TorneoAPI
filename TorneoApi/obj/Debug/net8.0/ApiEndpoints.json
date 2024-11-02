@@ -2,7 +2,7 @@
   {
     "ContainingType": "TorneoApi.Controllers.TorneoController",
     "Method": "CreateTorneo",
-    "RelativePath": "Api/Torneo",
+    "RelativePath": "Api/Torneo/Crear",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

@@ -9,7 +9,9 @@ namespace TorneoBack.Repository.Contracts
 {
     public interface IEquiposRepository
     {
-        bool AddEquipo(Equipo equipo);
+        bool Add(Equipo equipo);
         List<Equipo> GetAll();
+        bool Update(Equipo equipo);
+        //bool Delete(int id);
     }
 }
