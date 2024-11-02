@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TorneoApi.Models;
+using TorneoBack.Repository.Contracts;
 
 namespace TorneoBack.Repository
 {

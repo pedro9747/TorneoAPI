@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TorneoApi.Models;
 using TorneoBack.Repository;
+using TorneoBack.Repository.Contracts;
 
 namespace TorneoBack.Service
 {

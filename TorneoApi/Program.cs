@@ -1,27 +1,41 @@
 using Microsoft.EntityFrameworkCore;
 using TorneoApi.Models;
 using TorneoBack.Repository;
+using TorneoBack.Repository.Contracts;
 using TorneoBack.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// Agregar servicios al contenedor.
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Configuración de Swagger para desarrollo.
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// Configuración de la base de datos.
 builder.Services.AddDbContext<TorneoContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Configuración de repositorios y servicios.
 builder.Services.AddScoped<IJugadorRepository, JugadorRepository>();
 builder.Services.AddScoped<IEventoRepository, EventoRepository>();
 builder.Services.AddScoped<ITorneoRepository, TorneoRepository>();
 builder.Services.AddScoped<ITorneoService, TorneoService>();
 
+
+// Configuración de CORS para permitir todos los orígenes, métodos y encabezados.
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("PermitirTodo", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configuración del pipeline HTTP.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -29,6 +43,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Aplicar la política CORS que permite cualquier origen.
+app.UseCors("PermitirTodo");
 
 app.UseAuthorization();
 

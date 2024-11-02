@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,12 +7,12 @@ using TorneoApi.Models;
 
 namespace TorneoBack.Repository.Contracts
 {
-    public interface IJugadorRepository
+    public interface IEventoRepository
     {
-        void Add(Jugador jugador);
+        void Add(Evento evento);
         void Delete(int id);
-        Jugador Get(int id);
-        IEnumerable<Jugador> GetAll();
-        void Update(Jugador jugador);
+        Evento Get(int id);
+        List<Evento> GetAll();
+        void Update(Evento evento);
     }
 }

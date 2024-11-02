@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,8 +7,9 @@ using TorneoApi.Models;
 
 namespace TorneoBack.Repository.Contracts
 {
-    public interface ITorneoRepository
+    public interface IEquiposRepository
     {
-        bool Add(Torneo torneo);
+        bool AddEquipo(Equipo equipo);
+        List<Equipo> GetAll();
     }
 }

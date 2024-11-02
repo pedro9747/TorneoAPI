@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TorneoBack")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+423952b3ba3173229f17578a3618046fc80722cf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe17c0c7e8c898b7e148c42411b898adfc1febf2")]
 [assembly: System.Reflection.AssemblyProductAttribute("TorneoBack")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TorneoBack")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
