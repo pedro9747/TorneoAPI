@@ -1,72 +1,55 @@
-const jugadoresList = document.getElementById('jugadoresList');
-const jugadorForm = document.getElementById('jugadorForm');
-const equipoForm = document.getElementById('equipoForm');
-let jugadores = []; // Array para almacenar los jugadores
 
-// Manejar el envío del formulario de equipo
-equipoForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const nombreEquipo = document.getElementById('nombreEquipo').value;
-    const fechaFundacion = document.getElementById('fechaFundacion').value;
-    // Aquí agregarías la lógica para guardar el equipo en la base de datos
+document.addEventListener("DOMContentLoaded", () => {
+    const API_URL = "http://localhost:5014/Api/Equipo/Crear";
 
-    // Resetear el formulario
-    equipoForm.reset();
-    alert(`Equipo ${nombreEquipo} agregado con éxito.`);
-});
+    const form = document.getElementById("equipoForm");
 
-// Manejar el envío del formulario de jugador
-jugadorForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const nombreJugador = document.getElementById('nombreJugador').value;
-    const apellidoJugador = document.getElementById('apellidoJugador').value;
-    const dniJugador = document.getElementById('dniJugador').value;
+    form.addEventListener("submit", async(event) => {
+        event.preventDefault();
 
-    const jugador = { nombre: nombreJugador, apellido: apellidoJugador, dni: dniJugador };
-    jugadores.push(jugador);
-    updateJugadoresList();
+        const name = document.getElementById("nombreEquipo").value;
+        const fechaFundacion = document.getElementById("fechaFundacion").value;
 
-    // Resetear el formulario
-    jugadorForm.reset();
-});
+        let isValid = true;
 
-function updateJugadoresList() {
-    jugadoresList.innerHTML = ''; // Limpiar la lista
-    jugadores.forEach((jugador, index) => {
-        const li = document.createElement('li');
-        li.className = 'list-group-item';
-        li.textContent = `${jugador.nombre} ${jugador.apellido} - DNI: ${jugador.dni}`;
-        jugadoresList.appendChild(li);
+        if (name === "") {
+            alert("Es obligatorio ingresar nombre");
+            isValid = false;
+        }
+
+        const today = new Date();
+        const fundacion = new Date(fechaFundacion);
+
+        if (fechaFundacion === "" || fundacion >= today) {
+            alert("El Equipo debe tener fech de fundación posterior a hoy.");
+            isValid = false;
+        }
+
+        if (!isValid) return;
+
+
+        try {
+            const response = await fetch('http://localhost:5014/Api/Equipo/Crear', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    nombre: document.getElementById('nombreEquipo').value,
+                    fechaFundacion: document.getElementById('fechaFundacion').value,
+                })
+            });
+            
+
+            if (response.ok) {
+                alert("Equipo generado correctamente!");
+                form.reset();
+            } else {
+                alert("Error al guardar equipo");
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            alert("Ocurrió un error al intentar cargar el equipo");
+        }
     });
-}
-document.getElementById("equipoForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Evita el envío del formulario
-
-    // Obtener valores del formulario
-    const nombreJugador = document.getElementById("nombreJugador").value;
-    const apellidoJugador = document.getElementById("apellidoJugador").value;
-    const dniJugador = document.getElementById("dniJugador").value;
-
-    // Agregar el jugador a la lista
-    const jugadoresList = document.getElementById("jugadoresList");
-    const li = document.createElement("li");
-    li.className = "list-group-item";
-    li.textContent = `${nombreJugador} ${apellidoJugador}`;
-    jugadoresList.appendChild(li);
-
-    // Agregar el jugador a la tabla
-    const jugadoresTableBody = document.getElementById("jugadoresTableBody");
-    const row = document.createElement("tr");
-    row.innerHTML = `
-        <td>${nombreJugador}</td>
-        <td>${apellidoJugador}</td>
-        <td>${dniJugador}</td>
-        <td>${/* Aquí puedes poner la lógica para la ficha médica */ "Sí"}</td>
-    `;
-    jugadoresTableBody.appendChild(row);
-
-    // Limpiar los campos del formulario
-    document.getElementById("nombreJugador").value = '';
-    document.getElementById("apellidoJugador").value = '';
-    document.getElementById("dniJugador").value = '';
 });

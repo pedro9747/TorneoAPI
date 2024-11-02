@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "TorneoApi.Controllers.EquipoController",
+    "Method": "CreateEquipo",
+    "RelativePath": "Api/Equipo/Crear",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "equipo",
+        "Type": "TorneoApi.Models.Equipo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TorneoApi.Controllers.TorneoController",
     "Method": "CreateTorneo",
     "RelativePath": "Api/Torneo/Crear",
