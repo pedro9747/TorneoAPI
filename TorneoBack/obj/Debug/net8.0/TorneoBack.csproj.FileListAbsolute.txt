@@ -9,3 +9,5 @@ C:\Users\Usuario\OneDrive\Escritorio\programacion\programacion ii\ejercicios\Tor
 C:\Users\Usuario\OneDrive\Escritorio\programacion\programacion ii\ejercicios\TorneoApi\ProyectoTorneo\TorneoBack\obj\Debug\net8.0\refint\TorneoBack.dll
 C:\Users\Usuario\OneDrive\Escritorio\programacion\programacion ii\ejercicios\TorneoApi\ProyectoTorneo\TorneoBack\obj\Debug\net8.0\TorneoBack.pdb
 C:\Users\Usuario\OneDrive\Escritorio\programacion\programacion ii\ejercicios\TorneoApi\ProyectoTorneo\TorneoBack\obj\Debug\net8.0\ref\TorneoBack.dll
+C:\Users\Usuario\OneDrive\Escritorio\programacion\programacion ii\ejercicios\TorneoApi\ProyectoTorneo\TorneoBack\obj\Debug\net8.0\TorneoBack.csproj.AssemblyReference.cache
+C:\Users\Usuario\OneDrive\Escritorio\programacion\programacion ii\ejercicios\TorneoApi\ProyectoTorneo\TorneoBack\obj\Debug\net8.0\TorneoBack.sourcelink.json

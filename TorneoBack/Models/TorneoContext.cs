@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+
 
 namespace TorneoApi.Models;
 
@@ -92,7 +91,6 @@ public partial class TorneoContext : DbContext
     public virtual DbSet<VVerificacionArbitro> VVerificacionArbitros { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Data Source=DESKTOP-E045RR5\\SQLEXPRESS;Initial Catalog=Torneo;Integrated Security=True;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -135,7 +133,7 @@ public partial class TorneoContext : DbContext
             entity.HasKey(e => e.IdCiudad).HasName("PK__Ciudades__B7DC4CD5F97494DF");
 
             entity.Property(e => e.IdCiudad).HasColumnName("id_ciudad");
-            entity.Property(e => e.Ciudad)
+            entity.Property(e => e.Ciudads)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("ciudad");
