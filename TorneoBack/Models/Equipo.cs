@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace TorneoApi.Models;
 
@@ -11,17 +12,18 @@ public partial class Equipo
 
     public DateTime? FechaFundacion { get; set; }
 
-    public int? IdCiudad { get; set; }
-
-    public virtual ICollection<DirectoresTecnico> DirectoresTecnicos { get; set; } = new List<DirectoresTecnico>();
-
-    public virtual Ciudad? IdCiudadNavigation { get; set; }
-
-    public virtual ICollection<Jugador> Jugadores { get; set; } = new List<Jugador>();
-
-    public virtual ICollection<Partido> PartidoEquipo1Navigations { get; set; } = new List<Partido>();
-
-    public virtual ICollection<Partido> PartidoEquipo2Navigations { get; set; } = new List<Partido>();
-
-    public virtual ICollection<TorneosXEquipo> TorneosXEquipos { get; set; } = new List<TorneosXEquipo>();
+    [JsonIgnore]
+    public int? IdCiudad { get; set; } = null;
+    [JsonIgnore]
+    public virtual ICollection<DirectoresTecnico>? DirectoresTecnicos { get; set; } = null;
+    [JsonIgnore]
+    public virtual Ciudad? IdCiudadNavigation { get; set; } = null;
+    [JsonIgnore]
+    public virtual ICollection<Jugador>? Jugadores { get; set; } = null;
+    [JsonIgnore]
+    public virtual ICollection<Partido>? PartidoEquipo1Navigations { get; set; } = null;
+    [JsonIgnore]
+    public virtual ICollection<Partido>? PartidoEquipo2Navigations { get; set; } = null;
+    [JsonIgnore]
+    public virtual ICollection<TorneosXEquipo> ? TorneosXEquipos { get; set; } = null;
 }
